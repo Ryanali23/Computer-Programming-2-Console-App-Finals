@@ -65,9 +65,13 @@ Database <Student> studentDatabase  = new Database<>();
 Database <Employee> employeeDatabase = new Database<>();
 ```
 ## Basic CRUD Operation
+
 The database has  4 methods the **Store, Find, Update, Delete**
+
 ### Store()
+
 Store operation can be done using the following : 
+
 ```java
 Database <Student> studentDatabase  = new Database<>()
  studentDatabase.store(new Student(1,"Ryan","Ali",20));
@@ -153,7 +157,7 @@ for(int i = 0; i < studentDatabase.find().size(); i++){
 
 With this example, we update the value of id **3** but, it does not exist and our upsert is true, that is why, it still stores in the database.
 
-###Delete()
+### Delete()
 Delete method take only one arguments which is the Id of the user. For example : 
 ```java
 Database <Student> studentDatabase  = new Database<>(); 
