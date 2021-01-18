@@ -57,22 +57,22 @@ class Employee{
 }
 ```
 ## Creating Database 
-In order to create a database, We need to create a model and pass it as type to database   class.  For example :
+In order to create a database, We need to create a model and pass it as type to database class. For example :
 
 #### Using Student and Employee  model
 ```java
 Database <Student> studentDatabase  = new Database<>();
 Database <Employee> employeeDatabase = new Database<>();
 ```
-##Basic CRUD Operation
+## Basic CRUD Operation
 The database has  4 methods the **Store, Find, Update, Delete**
-###Store()
+### Store()
 Store operation can be done using the following : 
 ```java
 Database <Student> studentDatabase  = new Database<>()
  studentDatabase.store(new Student(1,"Ryan","Ali",20));
 ```
-By default,  the store operation **primary-key**  runs on auto-increment and it should be integer only, but you can define your own key by passing another argument to **store ** method. consider the following: 
+By default,  the store operation **primary-key**  runs on auto-increment and it should be integer only, but you can define your own key by passing another argument to **store** method. consider the following: 
 ```java
 studentDatabase.store(2,new Student(2,"Ryan","Ali",20));
 ```
@@ -81,17 +81,17 @@ You can also do this:
 Database <Employee> employeeDatabase = new Database<>()
 Employee emp = new Employee();
 emp.set(1,"Claud","Bereber",20);
- employeeDatabase.store(emp);
+employeeDatabase.store(emp);
 ```
-####Create Operation Exception
-There are only two ways  to implement **Primary-key ** by:  I**mplementing on your own** or **stick to auto-increment**. You should choose only one because if id that  has been pass is not unique, it will throw an UniqueIdException. Consider the following example: 
+#### Create Operation Exception
+There are only two ways  to implement **Primary-key  by:  Implementing on your own** or **stick to auto-increment**. You should choose only one because if id that  has been pass is not unique, it will throw an UniqueIdException. Consider the following example: 
 
 ```java
 Database <Student> studentDatabase  = new Database<>();
 studentDatabase.store(new Student(1,"Ryan","Ali",20));
 studentDatabase.store(1,new Student(2,"Faisal","Ali",90));
 ```
-In this example, It will throw an exception because, when you run the default store operation the database primary key will increment. Then, you passed another  argument, the value **1 **which is equal to auto-increment value and it is already existed. That is why recommended to use only one implementation.
+In this example, It will throw an exception because, when you run the default store operation the database primary key will increment. Then, you passed another  argument, the value **1** which is equal to auto-increment value and it is already existed. That is why recommended to use only one implementation.
 
 ### Find()
 Find method will return an arraylist. You can extract the data by using the following:
