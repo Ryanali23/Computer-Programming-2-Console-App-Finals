@@ -18,10 +18,6 @@ class Finals{
       
   
     }
-
-
-
-
 }
 ///database class
 class Database <Type extends Object> implements DatabaseMethods<Type>{
