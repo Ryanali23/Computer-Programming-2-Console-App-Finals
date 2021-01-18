@@ -189,6 +189,6 @@ for(int i = 0; i < studentDatabase.find().size(); i++){
 `Ryan`
 `Faisal`
 
-In this example the data has been deleted with id of **3** has been deleted.
+In this example, The data has been deleted with id of **3**.
 
 
