@@ -1,23 +1,39 @@
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.ArrayList;
 
 class Finals{
 
     public static void main(String[] args) {
         
-        Database <Student> studentDb  = new Database<>();
+       
+        Database <Employee> employeeDatabase = new Database<>();
+           //Employee emp = new Employee();
+        //emp.set(1,"Claud","Bereber",20);
+        //employeeDb.store(emp);
 
-        studentDb.store(new Student(1,"Ryan","Ali",20));
-        studentDb.store(new Student(2,"Faisal","Ali",90));
 
-        for(int i = 0; i < studentDb.find().size(); i++){
-            System.out.println(studentDb.find().get(i).age);
+     
+        Database <Student> studentDatabase  = new Database<>();
+        studentDatabase.store(new Student(1,"Ryan","Ali",20));
+        studentDatabase.store(new Student(2,"Faisal","Ali",90));
+
+        for(int i = 0; i < studentDatabase.find().size(); i++){
+            System.out.println(studentDatabase.find().get(i).firstName);
         }
-      
-  
+        studentDatabase.update(3,new Student(3,"Claud","Bereber",20),true);
+
+        for(int i = 0; i < studentDatabase.find().size(); i++){
+            System.out.println(studentDatabase.find().get(i).firstName);
+        }
+
+        studentDatabase.delete(3);
+
+        for(int i = 0; i < studentDatabase.find().size(); i++){
+            System.out.println(studentDatabase.find().get(i).firstName);
+        }
     }
+  
 }
 ///database class
 class Database <Type extends Object> implements DatabaseMethods<Type>{
@@ -34,7 +50,7 @@ class Database <Type extends Object> implements DatabaseMethods<Type>{
         try{
         if(storage.containsKey(Id)) {
 
-                throw new UniqueIdException();
+         throw new UniqueIdException();
         }
             storage.put(Id, object);
         }
@@ -90,10 +106,10 @@ class Student{
 //models
 class Employee{
 
-    public int id; 
-    public String firstName; 
-    public String  lastName; 
-    public int age; 
+    private int id; 
+    private String firstName; 
+    private String  lastName; 
+    private int age; 
 
 
     public void set(int id, String firstName,String lastName,int age ){
